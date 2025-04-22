@@ -1,0 +1,7 @@
+- MODULES
+- TRANSLATE (https://pt.libretranslate.com)
+- ROUTE
+- CLAIMS
+- LIST VIEWS
+- ORVAL (https://orval.dev/reference/configuration/output)
+- AUTOFORM (https://autoform.vantezzen.io/docs/react/customization)
