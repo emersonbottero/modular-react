@@ -1,25 +1,20 @@
 import  { StrictMode } from 'react'
+import {routeTree} from "./routes.tsx"
 import { createRoot } from 'react-dom/client'
+import { createRouter, RouterProvider } from '@tanstack/react-router';
 import './index.css'
-import App from './App.tsx'
-import { BrowserRouter, Route, Routes } from "react-router";
 
-import { CustomRoutes } from './types.ts';
-const routes = import.meta.glob('./modules/**/routes.tsx', { eager: true }) as Record<string, {default : CustomRoutes}>;
+const router = createRouter({routeTree})
+
+declare module '@tanstack/react-router' {
+  interface Register {
+    router: typeof router
+  }
+}
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App routes={Object.values(routes).map(r => r.default)}/>} children={
-          [
-            Object.values(routes).map((route) => {
-              return <Route key={route.default.path} path={route.default.path} element={<route.default.element />} />
-            })
-          ]
-        }/>
-       
-      </Routes>   
-     </BrowserRouter>
+     <RouterProvider router={router} />
   </StrictMode>,
 )

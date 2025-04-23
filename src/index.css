@@ -42,7 +42,7 @@
 }
 
 :root {
-  --radius: 0.625rem;
+  --radius: 6px;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
   --card: oklch(1 0 0);
@@ -116,5 +116,14 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+
+/* Material Design */
+
+@layer utilities {
+  button[role="switch"] {
+    @apply h-2.5 w-7 data-[state=unchecked]:bg-gray-400 data-[state=checked]:bg-blue-400 *:-ml-0.5 data-[state=checked]:*:bg-blue-700 *:shadow-md;
   }
 }

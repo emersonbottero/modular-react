@@ -1,8 +1,8 @@
+import { Route } from "@tanstack/react-router";
 import React from "react";
 
-export interface CustomRoutes {
+export interface Module<T extends Route<any>> {
     name: string,
     icon: React.ReactNode,
-    path: "/music",
-    element: React.ComponentType,
+    route: T ,
 }
