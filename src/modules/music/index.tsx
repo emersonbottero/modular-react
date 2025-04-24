@@ -1,14 +1,15 @@
-import { Button } from "@/components/ui/button";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
 import { Label } from "@/components/ui/label";
+import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
+import { Separator } from "@/components/ui/separator";
 import { SidebarGroupContent, SidebarGroupLabel, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "@/components/ui/sidebar";
 import { Switch } from "@/components/ui/switch";
-import { Check, ChevronRight, FilePlus2Icon } from "lucide-react";
+import {  ChevronRight, FilePlus2Icon, FileTextIcon } from "lucide-react";
 
 export default function Music() {
     const calendars = [
         {
-          name: "My Calendars",
+          name: "My Music",
           items: ["Personal", "Work", "Family"],
         },
         {
@@ -23,17 +24,24 @@ export default function Music() {
     return (
         <>
         <h1>Music Main</h1>
-        <div className="flex gap-2">
-            <Button variant="outline"  className="size-27 flex flex-col gap-3 justify-between">
-                <FilePlus2Icon className="size-9 bg-blue-400 stroke-white p-2 border-r-2" />
-                <span className="text-wrap text-blue-500">New Music Request</span>
-            </Button>
-            <Button variant="outline"  className="size-27 flex flex-col gap-3 justify-between">
-                <FilePlus2Icon className="size-9 bg-blue-400 stroke-white p-2 border-r-2" />
-                <span className="text-wrap text-blue-500">New Music Request</span>
-            </Button>
+        <div className="">
+            <RadioGroup defaultValue="option-one" className="grid grid-cols-3 gap-4">
+                <div>
+                    <RadioGroupItem value="option-one" id="option-one" className="size-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"/>
+                    <Label className="h-full font-normal text-center text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary" htmlFor="option-one">
+                        <FilePlus2Icon/>
+                        New Music Request
+                    </Label>
+                </div>
+                <div>
+                    <RadioGroupItem value="option-two" id="option-two" className="size-4 rounded-full border border-primary text-primary shadow focus:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:cursor-not-allowed disabled:opacity-50 peer sr-only"/>
+                    <Label  className="h-full font-normal text-center text-sm leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 flex flex-col items-center justify-between rounded-md border-2 border-muted bg-transparent p-4 hover:bg-accent hover:text-accent-foreground peer-data-[state=checked]:border-primary [&:has([data-state=checked])]:border-primary" htmlFor="option-two">
+                    <FileTextIcon/>
+                    Music Request</Label>
+                </div>
+            </RadioGroup>
         </div>
-        {calendars.map((calendar, index) => (
+        {calendars.map((calendar, index) => (<>
         <Collapsible
               defaultOpen={index === 0}
               className="group/collapsible"
@@ -70,7 +78,10 @@ export default function Music() {
                   </SidebarMenu>
                 </SidebarGroupContent>
               </CollapsibleContent>
-            </Collapsible>))}
+            </Collapsible>
+                      <Separator/>
+</>
+        ))}
         </>
     )
 }
