@@ -23,7 +23,7 @@ export default function Music() {
       ]
     return (
         <>
-        <h1>Music Main</h1>
+        <h1>Music Rquests</h1>
         <div className="">
             <RadioGroup defaultValue="option-one" className="grid grid-cols-3 gap-4">
                 <div>

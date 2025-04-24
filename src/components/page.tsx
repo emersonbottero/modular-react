@@ -36,7 +36,7 @@ export default function Page({routes}: {routes:Module<any>[]}) {
     "--sidebar-width-mobile": "20rem",
   } as React.CSSProperties}>
       <Sidebar collapsible="icon" variant="floating">
-        <SidebarHeader>
+        <SidebarHeader className="border-b">
           <SidebarMenu>
             <SidebarMenuItem>
             <SidebarMenuButton className="h-12">
@@ -49,7 +49,7 @@ export default function Page({routes}: {routes:Module<any>[]}) {
           </SidebarMenu>
         </SidebarHeader>
         <SidebarContent className="flex flex-row gap-0">
-          <SidebarGroup  className="w-14 flex-none">
+          <SidebarGroup  className="w-12 flex-none border-r">
             <SidebarMenu>
               {routes.map((item) => (
                 <SidebarMenuItem key={item.name}>
@@ -63,7 +63,7 @@ export default function Page({routes}: {routes:Module<any>[]}) {
               ))}
             </SidebarMenu>
           </SidebarGroup>
-        <SidebarGroup className="flex-1 pl-0">
+        <SidebarGroup className="flex-1">
           <Outlet />
         </SidebarGroup>
         </SidebarContent>
