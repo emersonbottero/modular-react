@@ -6,11 +6,11 @@ import React from "react";
 
 
 export default {
-    name: "Music",
-    icon: <MusicIcon />,
+    name: "Sculpture",
+    icon: <MusicIcon  />,
     route: createRoute({
         getParentRoute: () => rootRoute,
-        path: "/music",
+        path: "/Sculpture",
         component: React.lazy(() => import("."))                 
     })
 }
